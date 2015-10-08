@@ -11,6 +11,7 @@ function homeController($scope){
       stack.createCard(targetElement);
       targetElement.classList.add('in-deck');
     });
+    console.log(stack)
     stack.on('throwoutleft', function (e) {
       $scope.cards.pop();
       e.target.classList.remove('in-deck');
