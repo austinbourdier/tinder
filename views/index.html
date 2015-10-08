@@ -5,140 +5,41 @@
   <script src="/assets/js/angular.js"></script>
   <script src="/assets/js/angular-swing.js"></script>
   <script type="text/javascript">
-  var data = {{data|raw|json_encode}}
+    var data = {{data|raw|json_encode}}
   </script>
   <script src="/js/app.js"></script>
   <script src="/js/app_config.js"></script>
   <script src="/js/controllers/homeCtrl.js"></script>
-  <style type="text/css">
-  html,
-  body,
-  ul,
-  li {
-    margin: 0; padding: 0;
-  }
-
-  body {
-    background: #FCD424; font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif;
-  }
-  button,
-  input,
-  code {
-    display: inline-block; outline: none; font: inherit; border: none; background: #FDE991; padding: 0;
-  }
-
-  button {
-    color: #C7433E; cursor: pointer;
-  }
-
-  input {
-    width: 50px;
-  }
-
-  #viewport {
-    width: 500px; height: 500px; background: #C7433E; border: 10px solid #ED5D52; margin: 100px auto 0; position: relative;
-  }
-
-  #viewport .stack {
-    width: 200px; height: 300px; background: #ED5D52; position: absolute; top: 100px; left: 50%; margin-left: -100px; border-radius: 10px;
-  }
-
-  #viewport li {
-    width: 200px; height: 300px; list-style: none; background: #fff; border-radius: 5px; position: absolute; top: 0; left: 0; box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);    border: 10px solid #ECECEC; box-sizing: border-box; cursor: default;
-  }
-
-
-  #control {
-    position: absolute; bottom: 30px; left: 0; right: 0;  font-size: 0;
-  }
-
-  #control button {
-    background: #FFFFFF; color: #373737; font-weight: bold; border: none; font: normal 18px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif; margin: 0 5px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 0 #63211F; outline: none; position: relative;
-  }
-  #control button:active {
-    background: #63211F; color: #FFFFFF; bottom: -2px; box-shadow: none;
-  }
-
-  #source {
-    width: 500px; margin: 20px auto;
-  }
-
-  #source a {
-    color: #C7433E;
-  }
-  .image {
-    width: 100%;
-    height: 250px;
-  }
-
-  .info{
-    font-size: 20px;
-    height: 30px;
-  }
-  .name-age {
-    text-align: left;
-  }
-  .overlay {
-    opacity:0;
-    filter: alpha(opacity = 0);
-    position:absolute;
-    top:0; bottom:0; left:0; right:0;
-    display:block;
-    z-index:2;
-    background:transparent;
-  }
-  .overlay-text {
-    color: black;
-    position:absolute;
-    top:0; bottom:0; left:0; right:0;
-    display:block;
-    z-index:2;
-  }
-  #nope {
-    right: 0;
-    position: absolute;
-  }
-  .match-black-screen {
-    position:absolute;
-    top:0; bottom:0; left:0; right:0;
-    display:block;
-    background:black;
-    opacity: .7;
-    color:white;
-  }
-  .overlay-text span {
-    font-size: 45px;
-  }
-  #like {
-    color: #3b7;
-  }
-  #nope {
-    color: #c33;
-  }
-  </style>
+  <link type="text/css" rel="stylesheet" href="/css/style.css"></link>
 </head>
 <body ng-controller='homeCtrl'>
   <div id="viewport">
-    <ul class="stack">
+    <ul class="stack" id='cardStack'>
+      <img src="/assets/images/messages.png" class='messages-link'>
       <li ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
         <img ng-src="[[card.imageLink]]" class='image'>
         <span class="info">
           <span class='name-age'>[[card.name]], [[card.age]]</span>
         </span>
-        <!-- add an overlay on top of the card so the picture is draggable -->
         <div class="overlay"></div>
-        <div class="overlay-text"><span id='like' ng-show="draggingRight">LIKE</span><span id='nope' ng-show='draggingLeft'>NOPE</span></div>
+        <div class="overlay-text">
+          <span class='like'>LIKE</span>
+          <span class='nope'>NOPE</span>
+        </div>
       </li>
       <div ng-show='match' class="match-screen">
-
         <div class='match-black-screen'>
-          It's a match!
+        <img src="/assets/images/match.png" class='match-screen-img'>
+          <div class='match-text'>You and [[currentMatch.name]] have liked each other!</div>
+          <img ng-src='[[currentMatch.imageLink]]' class='match-image'>
+          <div class='exit-match-screen' ng-click="leaveMatchScreen()">Awesome!</div>
         </div>
-        <div>
-
-        </ul>
       </div>
-
-
-    </body>
-    <html>
+      <div id='gamepad'>
+        <img id='gamepad-no' src='/assets/images/no.png' ng-click='gamePadLeft($event)'></img>
+        <img id='gamepad-yes' src='/assets/images/yes.png' ng-click='gamePadRight($event)'></img>
+      </div>
+    </ul>
+  </div>
+</body>
+<html>
