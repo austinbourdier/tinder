@@ -1,14 +1,12 @@
 
-@media only screen 
-and (min-device-width : 300px) 
-and (max-device-width : 700px) 
-and (orientation : portrait) { 
+
   html,
   body,
   ul,
   li {
     margin: 0; padding: 0;
     height: 100%;
+    font-family: 
   }
 
   body {
@@ -71,9 +69,7 @@ input {
   margin-top: 50px;
   position: absolute;
 }
-.name-age {
-  text-align: left;
-}
+
 .overlay {
   border: 10px solid black;
   opacity:0;
@@ -162,7 +158,6 @@ input {
   font-size: 80px;
   height: 80px;
   margin-top: 40px;
-  border: 10px solid white;
 }
 
 #gamepad {
@@ -184,5 +179,4 @@ input {
   position: absolute;
   left: 65%;
   top: 85%;
-}
 }
