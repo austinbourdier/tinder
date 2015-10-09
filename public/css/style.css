@@ -32,7 +32,7 @@ input {
 }
 
 #viewport li {
-  width: 90%; height: 80%; list-style: none; background: white; border-radius: 5px; position: fixed; top: 5%; left: 5%; border: 10px solid white; box-sizing: border-box; cursor: default;
+  width: 90%; height: 90%; list-style: none; background: white; border-radius: 5px; position: fixed; top: 5%; left: 5%; border: 10px solid white; box-sizing: border-box; cursor: default;
 }
 
 #control {
@@ -61,7 +61,7 @@ input {
 }
 
 .info{
-  font-size: 80px;
+  font-size: 30px;
   height: 30px;
   margin-top: 20px;
   position: absolute;
@@ -166,14 +166,14 @@ input {
   color: red;
   position: absolute;
   left: 25%;
-  height: 100px;
-  width: 100px;
+  height: 10%;
+  width: 10%;
   top: 85%;
 }
 #gamepad-yes {
   color: green;
-  height: 100px;
-  width: 100px;
+  height: 10%;
+  width: 10%;
   position: absolute;
   left: 65%;
   top: 85%;
