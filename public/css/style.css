@@ -3,7 +3,7 @@ body,
 ul,
 li {
   margin: 0; padding: 0;
-  height: 100%
+  height: 100%;
 }
 
 body {
@@ -28,11 +28,11 @@ input {
 }
 
 #viewport .stack {
-  width: 100%; height: 100%; background: white; position: absolute; 
+  width: 100%; height: 100%; background: white; position: absolute;
 }
 
 #viewport li {
-  width: 90%; height: 80%; list-style: none; background: white; border-radius: 5px; position: absolute; top: 5%; left: 5%; border: 10px solid white; box-sizing: border-box; cursor: default;
+  width: 90%; height: 80%; list-style: none; background: white; border-radius: 5px; position: fixed; top: 5%; left: 5%; border: 10px solid white; box-sizing: border-box; cursor: default;
 }
 
 #control {
@@ -120,7 +120,8 @@ input {
   z-index: 3;
 }
 .overlay-text span {
-  font-size: 45px;
+  font-size: 150px;
+  top: 140px;
 }
 .messages-link {
   width:10%;
@@ -151,6 +152,10 @@ input {
 
 .exit-match-screen {
   text-align: center;
+  font-size: 80px;
+  height: 80px;
+  margin-top: 40px;
+  border: 10px solid white;
 }
 
 #gamepad {
