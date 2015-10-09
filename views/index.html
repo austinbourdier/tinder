@@ -15,8 +15,9 @@
 <body ng-controller='homeCtrl'>
   <div id="viewport">
     <ul class="stack" id='cardStack'>
-      <img src="/assets/images/messages.png" class='messages-link'>
-      <li ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
+      <img ng-hide='match' src="/assets/images/logo.png" class='logo'>
+      <img ng-hide='match' src="/assets/images/messages.png" class='messages-link'>
+      <li ng-hide='match' ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
         <img ng-src="[[card.imageLink]]" class='image'>
         <div class="info">[[card.name]], [[card.age]]</div>
         <div class="overlay"></div>
@@ -33,7 +34,7 @@
           <div class='exit-match-screen' ng-click="leaveMatchScreen()">Awesome!</div>
         </div>
       </div>
-      <div id='gamepad'>
+      <div id='gamepad' ng-hide='match'>
         <img id='gamepad-no' src='/assets/images/no.png' ng-click='gamePadLeft($event)'></img>
         <img id='gamepad-yes' src='/assets/images/yes.png' ng-click='gamePadRight($event)'></img>
       </div>
