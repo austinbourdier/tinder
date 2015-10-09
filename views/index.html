@@ -18,7 +18,7 @@
       <img src="/assets/images/messages.png" class='messages-link'>
       <li ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
         <img ng-src="[[card.imageLink]]" class='image'>
-        <span class="info">[[card.name]], [[card.age]]</span>
+        <div class="info">[[card.name]], [[card.age]]</div>
         <div class="overlay"></div>
         <div class="overlay-text">
           <span class='like'>LIKE</span>
