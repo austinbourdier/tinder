@@ -11,7 +11,6 @@ exports.connect = function() {
       async.eachLimit(require('../seed').profiles, 1, function(obj, next) {
         var profile = new Profile(obj);
         profile.save(function(err, savedProfile){
-          console.log(err || savedProfile);
           next();
         });
       }, function(err) {

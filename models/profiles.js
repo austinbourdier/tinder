@@ -4,7 +4,7 @@ var profileSchema = new mongoose.Schema({
     name: {
       type: String
     },
-    photoURI: {
+    imageLink: {
       type: String
     },
     age: {
