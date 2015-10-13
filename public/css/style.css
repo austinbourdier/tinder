@@ -6,7 +6,7 @@
   li {
     margin: 0; padding: 0;
     height: 100%;
-    font-family: 
+    font-family:
   }
 
   body {
@@ -166,13 +166,22 @@ input {
   position: absolute;
   top: 2%;
 }
+#match-list li {
+  font-size: 80px;
+  height: 80px;
+  position: relative;
+}
 .exit-match-screen {
   text-align: center;
   font-size: 80px;
   height: 80px;
   margin-top: 40px;
 }
-
+.match-list-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+}
 #gamepad {
   margin-top: 230px;
   margin-left: 100px;

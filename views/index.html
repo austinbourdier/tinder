@@ -16,8 +16,8 @@
   <div id="viewport">
     <ul class="stack" id='cardStack'>
       <img ng-hide='match' src="/assets/images/logo.png" class='logo'>
-      <img ng-hide='match' src="/assets/images/messages.png" class='messages-link'>
-      <li ng-hide='match' ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
+      <img ng-hide='match' src="/assets/images/messages.png" class='messages-link' ng-click='showMatchList()'>
+      <li ng-hide='match || showMatchListView' ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
         <img ng-src="[[card.imageLink]]" class='image'>
         <div class="info">[[card.name]], [[card.age]]</div>
         <div class="overlay"></div>
@@ -34,10 +34,15 @@
           <div class='exit-match-screen' ng-click="leaveMatchScreen()">Awesome!</div>
         </div>
       </div>
-      <div id='gamepad' ng-hide='match'>
+      <div id='gamepad' ng-hide='match || showMatchListView'>
         <img id='gamepad-no' src='/assets/images/no.png' ng-click='gamePadLeft($event)'></img>
         <img id='gamepad-yes' src='/assets/images/yes.png' ng-click='gamePadRight($event)'></img>
       </div>
+    </ul>
+    <ul id='match-list' ng-show='showMatchListView'>
+      <li ng-repeat='match in matchList'>
+        <img ng-src="[[match.imageLink]]" class='match-list-img'><span>[[match.name]]</span>
+      </li>
     </ul>
   </div>
 </body>

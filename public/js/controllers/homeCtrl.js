@@ -5,6 +5,8 @@ angular.module('myApp')
 function homeController($scope){
   $scope.cards = data;
   var stack;
+  $scope.showMatchListView = false;
+  $scope.matchList = [];
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     stack = gajus.Swing.Stack();
     [].forEach.call(document.querySelectorAll('.stack li'), function (targetElement) {
@@ -20,6 +22,7 @@ function homeController($scope){
     stack.on('throwoutright', function (e) {
       $scope.match = true;
       $scope.currentMatch = $scope.cards.pop();
+      $scope.matchList.push($scope.currentMatch);
       $scope.$apply();
       e.target.classList.remove('in-deck');
       e.target.style.display = 'none';
@@ -41,6 +44,9 @@ function homeController($scope){
       e.target.children[3].children[1].style.display = "none";
     });
   });
+  $scope.showMatchList = function() {
+    $scope.showMatchListView = !$scope.showMatchListView;
+  }
   $scope.leaveMatchScreen = function() {
     $scope.match = false;
     $scope.currentMatch = null;
