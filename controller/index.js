@@ -1,3 +1,8 @@
+var Profile = require('../models/profiles');
+
 exports.render = function(req, res){
-  res.render('index', {data: matches});
+  Profile.find({}, function(err, profiles) {
+    if (err) return res.send(err);
+    res.render('index', {data: profiles});
+  })
 }
