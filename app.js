@@ -6,7 +6,8 @@ var swig = require('swig');
 var moment = require('moment');
 var port = process.env.PORT || '3000';
 var controller = require('./controller')
-
+var db = require('./config/database');
+db.connect();
 app.get('/', controller.render);
 
 
