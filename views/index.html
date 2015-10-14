@@ -6,17 +6,19 @@
   <script src="/assets/js/angular-swing.js"></script>
   <script type="text/javascript">
     var data = {{data|raw|json_encode}}
+    console.log(angular)
   </script>
   <script src="/js/app.js"></script>
   <script src="/js/app_config.js"></script>
   <script src="/js/controllers/homeCtrl.js"></script>
+  <title>Tinder</title>
   <link type="text/css" rel="stylesheet" href="/css/style.css"></link>
 </head>
 <body ng-controller='homeCtrl'>
   <div id="viewport">
     <ul class="stack" id='cardStack'>
-      <img ng-hide='match' src="/assets/images/logo.png" class='logo'>
-      <img ng-hide='match' src="/assets/images/messages.png" class='messages-link' ng-click='showMatchList()'>
+      <img ng-hide='match' src="/assets/images/logo.png" class='logo' id='tinder-logo'>
+      <img ng-hide='match' src="/assets/images/messages.png" class='messages-link' ng-click='showMatchList()' id='tinder-messages-link'>
       <li ng-hide='match || showMatchListView' ng-repeat='card in cards' on-finish-render="ngRepeatFinished">
         <img ng-src="[[card.imageLink]]" class='image'>
         <div class="info">[[card.name]], [[card.age]]</div>
@@ -31,7 +33,7 @@
         <img src="/assets/images/match.png" class='match-screen-img'>
           <div class='match-text'>You and [[currentMatch.name]] have liked each other!</div>
           <img ng-src='[[currentMatch.imageLink]]' class='match-image'>
-          <div class='exit-match-screen' ng-click="leaveMatchScreen()">Awesome!</div>
+          <div class='exit-match-screen' id='exit-match-screen' ng-click="leaveMatchScreen()">Awesome!</div>
         </div>
       </div>
       <div id='gamepad' ng-hide='match || showMatchListView'>
